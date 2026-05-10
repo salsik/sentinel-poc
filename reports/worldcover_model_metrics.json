@@ -1,0 +1,153 @@
+{
+  "important_note": "Metrics are against ESA WorldCover labels, not independent Syria ground truth.",
+  "accuracy_against_worldcover_labels": 0.6942857142857143,
+  "features": [
+    "BLUE",
+    "GREEN",
+    "RED",
+    "RE1",
+    "RE2",
+    "RE3",
+    "NIR",
+    "SWIR1",
+    "SWIR2",
+    "NDVI",
+    "NDWI",
+    "NDMI",
+    "NDBI",
+    "EVI",
+    "SAVI",
+    "BSI"
+  ],
+  "classes_used": {
+    "10": "tree_cover",
+    "20": "shrubland",
+    "30": "grassland",
+    "40": "cropland",
+    "50": "built_up",
+    "60": "bare_sparse_vegetation",
+    "80": "permanent_water"
+  },
+  "classification_report": {
+    "tree_cover": {
+      "precision": 0.6185567010309279,
+      "recall": 0.8,
+      "f1-score": 0.6976744186046512,
+      "support": 150.0
+    },
+    "shrubland": {
+      "precision": 0.5933333333333334,
+      "recall": 0.5933333333333334,
+      "f1-score": 0.5933333333333334,
+      "support": 150.0
+    },
+    "grassland": {
+      "precision": 0.5259259259259259,
+      "recall": 0.47333333333333333,
+      "f1-score": 0.49824561403508766,
+      "support": 150.0
+    },
+    "cropland": {
+      "precision": 0.628099173553719,
+      "recall": 0.5066666666666667,
+      "f1-score": 0.5608856088560885,
+      "support": 150.0
+    },
+    "built_up": {
+      "precision": 0.7266187050359713,
+      "recall": 0.6733333333333333,
+      "f1-score": 0.698961937716263,
+      "support": 150.0
+    },
+    "bare_sparse_vegetation": {
+      "precision": 0.7592592592592593,
+      "recall": 0.82,
+      "f1-score": 0.7884615384615384,
+      "support": 150.0
+    },
+    "permanent_water": {
+      "precision": 1.0,
+      "recall": 0.9933333333333333,
+      "f1-score": 0.9966555183946488,
+      "support": 150.0
+    },
+    "accuracy": 0.6942857142857143,
+    "macro avg": {
+      "precision": 0.6931132997341624,
+      "recall": 0.6942857142857143,
+      "f1-score": 0.690602567057373,
+      "support": 1050.0
+    },
+    "weighted avg": {
+      "precision": 0.6931132997341624,
+      "recall": 0.6942857142857143,
+      "f1-score": 0.690602567057373,
+      "support": 1050.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      120,
+      19,
+      0,
+      1,
+      10,
+      0,
+      0
+    ],
+    [
+      34,
+      89,
+      11,
+      7,
+      8,
+      1,
+      0
+    ],
+    [
+      8,
+      19,
+      71,
+      22,
+      8,
+      22,
+      0
+    ],
+    [
+      21,
+      11,
+      25,
+      76,
+      5,
+      12,
+      0
+    ],
+    [
+      11,
+      12,
+      17,
+      5,
+      101,
+      4,
+      0
+    ],
+    [
+      0,
+      0,
+      11,
+      10,
+      6,
+      123,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      149
+    ]
+  ]
+}
