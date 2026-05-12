@@ -32,10 +32,10 @@ def compute_risk_score(df: pd.DataFrame) -> pd.DataFrame:
     Returns a copy with component scores and total risk score from 0..100.
     """
     out = df.copy()
-    out["vegetation_stress"] = 1 - minmax(out["ndvi"])
-    out["water_stress"] = 1 - minmax(out["ndwi"])
-    out["heat_stress"] = minmax(out["temp_c"])
-    out["drought_stress"] = minmax(out["drought_index"])
+    out["vegetation_stress"] = 1 - minmax(out["NDVI"])
+    out["water_stress"] = 1 - minmax(out["NDWI"])
+    out["heat_stress"] = minmax(out["heat_stress"])
+    out["drought_stress"] = minmax(out["drought_stress"])
 
     base = (
         0.30 * out["water_stress"]

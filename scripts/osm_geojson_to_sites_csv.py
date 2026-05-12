@@ -3,8 +3,9 @@ import json
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-#INPUT = ROOT / "data" / "osm_sites.geojson"
-INPUT = ROOT / "data" / "osm_corridor.geojson"
+
+INPUT = ROOT / "data" / "osm_sites.geojson"
+#INPUT = ROOT / "data" / "osm_corridor.geojson"
 OUTPUT = ROOT / "data" / "sites_from_osm.csv"
 
 def get_lon_lat(feature):
@@ -86,3 +87,10 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+"""
+python scripts/osm_geojson_to_sites_csv.py
+
+"""
