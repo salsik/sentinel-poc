@@ -10,7 +10,7 @@ import plotly.express as px
 import pydeck as pdk
 import streamlit as st
 
-DATA = ROOT / "data" / "corridor_sites_with_ai_predictions_v2.csv"
+DATA = ROOT / "processed_data" / "corridor_sites_with_ai_predictions_v2.csv"
 
 st.set_page_config(page_title="Syria Climate & Child Health Risk POC", layout="wide")
 st.title("Open Climate & Health Risk Intelligence for Children in Syria")
@@ -19,7 +19,7 @@ st.caption("proof-of-concept | AI predictions are preliminary and require local 
 if not DATA.exists():
     st.error(f"Missing file: {DATA}")
     st.info(
-        "Expected file: data/corridor_sites_with_ai_predictions_v2.csv. "
+        "Expected file: processed_data/corridor_sites_with_ai_predictions_v2.csv. "
         "Run scripts/predict_sites_from_feature_csv_v2.py first."
     )
     st.stop()
@@ -61,6 +61,21 @@ st.sidebar.caption(
     "Current model: Random Forest trained on Sentinel-2 features and ESA WorldCover labels; "
     "site-level scores are preliminary."
 )
+
+
+if "risk_level" in df.columns:
+    risk_levels = ["Low", "Medium", "High"]
+
+    selected_risks = st.sidebar.multiselect(
+        "Risk levels",
+        risk_levels,
+        default=risk_levels,
+    )
+
+    df = df[df["risk_level"].astype(str).str.title().isin(selected_risks)]
+
+    st.sidebar.write("**Rows after risk filter:**", len(df))
+
 
 if "ai_confidence" in df.columns:
     min_conf = st.sidebar.slider("Minimum AI confidence", 0.0, 1.0, 0.0, 0.05)
